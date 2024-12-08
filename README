@@ -1,0 +1,91 @@
+
+Thank you for viewing my project, this is a PWA that tries to emulate the functions and layout of the popular app "Ticketek".
+
+Required dependencies:
+
+const express = require('express'); //requires express to be installed
+const bodyParser = require('body-parser'); //requires body-parser to be installed
+const session = require('express-session'); //requires express-session to be stalled
+const bcrypt = require('bcrypt'); //requires bcrypt to be installed for hashing in db
+const sequelize = require('./.database_models/index'); //requires sequelize for different db functions
+const User = require('./.database_models/user.js'); //requires user.js database model to collect/store data
+const Event = require('./.database_models/event.js'); //requires event.js database model to collect/store data
+const Booking = require('./.database_models/booking.js'); //requires booking.js database model to collect/store data
+
+Packages execute in gitbash:
+
+npm install nodejs
+npm install connect-flash
+npm install express
+npm install sqlite3
+npm install bcrypt
+npm install sequelize
+npm install body-parser
+npm install express-session
+npm init -y
+
+in /ticketbookingpwa
+node server.js
+
+port: 443 
+http://localhost:443/
+
+pages (views):
+index.ejs '/'
+events.ejs '/events'
+login.ejs '/login'
+signup.ejs '/signup'
+thanku.ejs '/thanku'
+signup-error.ejs '/signup-error'
+login-error.ejs '/login-error'
+
+
+database: database.sqlite
+tables: Bookings, Users, Events
+
+
+File Structure:
+
+/main tixster
+    |>/ticketbookingpwa
+        |>node_modules --> npm install nodejs
+        |>./database_models
+            |>booking.js
+            |>event.js
+            |>index.js
+            |>user.js
+        |>/public
+            |>/css
+                |>events.css
+                |>index.css
+                |>events.css
+                |>login.css
+                |>signup.css
+                |>thanku.css
+                |>signup-error.css
+                |>login-error.css
+            |>/images
+                |>logo1.png
+                |>logo144x144.png
+                |>logo192x192.png
+                |>logo512x512.png
+                |>screenshot1.png
+                |>screenshot2.png
+            |>manifest.json
+            |>sw.js
+        |>/views
+            |>index.ejs
+            |>events.ejs
+            |>login.ejs
+            |>signup.ejs
+            |>thanku.ejs
+            |>signup-error.ejs
+            |>login-error.ejs
+        |>database.sqlite
+        |>package.json --> npm init -y
+        |>package-lock.json --> npm install express
+        |>server.js
+    |>LICENSE
+    |>README
+
+

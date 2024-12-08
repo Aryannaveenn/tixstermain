@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--accessibility-->
+    <title>Signup Error • Tixster</title>
+    <link rel="stylesheet" href="/css/signup-error.css" />
+    <!--refer to signup-error.css-->
+  </head>
+  <header>
+    <!--logo -->
+    <div class="logo-container">
+      <a href="/" class="backtoindex">
+        <img
+          src="/images/logo1.jpg"
+          type="jpg"
+          alt="Tixster Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+  </header>
+
+  <body>
+    <!--main body contianer-->
+    <div class="error-container">
+      <h1>Error: This email is already registered.</h1>
+      <!--error msg-->
+      <h3>
+        Please <a href="/login">log in</a> or
+        <a href="/signup">try signing up with a different email</a>.
+      </h3>
+      <!--links to login and signup pg-->
+    </div>
+    <script>
+      //service worker registration
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("../sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--made to fit all screens-->
+    <meta name="description" content="Login page" />
+    <title>Login Page • Tixster</title>
+    <link rel="stylesheet" href="/css/login.css" />
+    <!-- refer to login.css -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <!-- GSAP for animations -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+  </head>
+  <body>
+    <!-- logo-->
+    <div class="logo-container">
+      <a href="/" class="backtoindex">
+        <img
+          src="/images/logo1.jpg"
+          type="jpg"
+          alt="Tixster Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+
+    <!-- login form -->
+    <div class="form-container">
+      <h2>Login</h2>
+      <form action="/login" method="POST">
+        <input
+          class="inpemail"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email *"
+          required
+        />
+        <!--password input-->
+        <div class="password-container">
+          <input
+            class="inppass"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password *"
+            required
+          />
+          <span
+            class="toggle-password"
+            onclick="togglePassword()"
+            title="Show/Hide Password"
+          >
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
+        <!-- password input with icon -->
+        <button class="btn-submit" type="submit">Login</button>
+        <!--login btn-->
+      </form>
+
+      <p class="switch-link">
+        Don't have an account? <a href="/signup"><u>Sign Up</u></a>
+      </p>
+      <!-- link to signup page-->
+      <p class="require-fields">
+        Required fields are marked with an <strong class="asterisk">*</strong>
+      </p>
+      <!--accessibility-->
+    </div>
+
+    <script>
+      //service worker registration
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("../sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+
+      window.addEventListener("load", () => {
+        // animations from GSAP
+        gsap.from(".form-container", {
+          opacity: 0,
+          duration: 1,
+          y: -50,
+          ease: "power3.out",
+        });
+        gsap.from(".inpemail", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 0.3,
+          stagger: 0.2,
+          ease: "power3.out",
+        });
+        gsap.from(".inppass", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 0.5,
+          stagger: 0.2,
+          ease: "power3.out",
+        });
+        gsap.from(".btn-submit", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 0.7,
+          ease: "power3.out",
+        });
+        gsap.from(".switch-link", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 1,
+          ease: "power3.out",
+        });
+        gsap.from(".require-fields", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 1.1,
+          ease: "power3.out",
+        });
+      });
+
+      function togglePassword() {
+        const passwordField = document.getElementById("password");
+        const icon = document.querySelector(".toggle-password i");
+
+        // Toggle password visibility
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          passwordField.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--accessibility-->
+    <meta name="description" content="Thank you page" />
+    <title>Booking Confirm Page • Tixster</title>
+    <link rel="stylesheet" href="/css/thanku.css" />
+    <!-- refer to thanku.css -->
+  </head>
+  <body>
+    <!-- thank u message-->
+    <div class="container">
+      <h1>Thank you for booking with us!</h1>
+      <p>
+        You have successfully booked <strong><%= seats %></strong> ticket(s) for
+        the event <strong><%= event.name %></strong>.
+      </p>
+      <p>We wish you a tixster time at <strong><%= event.name %></strong>!</p>
+      <a href="/events" class="cta"><strong>Back to Events</strong></a>
+      <!-- button back to index-->
+    </div>
+    <div class="logo-container">
+      <a href="/" class="backtoindex">
+        <img
+          src="/images/logo1.jpg"
+          type="jpg"
+          alt="Tixster Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+    <script>
+      // animations
+      window.addEventListener("load", () => {
+        gsap.from("container", {
+          opacity: 0,
+          duration: 1.5,
+          y: 50,
+          stagger: 0.3,
+        });
+      });
+
+      //service worker registration
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("../sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

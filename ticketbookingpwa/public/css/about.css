@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.contact-container {
+  width: 50%;
+  height: 440px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: fixed;
+  top: 50px;
+  left: 300px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.switch-link {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: fixed;
+  top: 520px;
+  left: 590px;
+}
+
+.switch-link:hover {
+  color: darkgreen;
+}
+
+header {
+  position: fixed;
+  color: black;
+}
+
+/* Logo */
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  top: 620px;
+  left: 607px;
+  color: #777;
+}
+
+/* Responsive additions */
+@media (min-width: 1025px) {
+  .contact-container {
+    width: 50%;
+    top: 50px;
+  }
+
+  .switch-link {
+    top: 520px;
+    left: 590px;
+  }
+
+  .footer {
+    top: 620px;
+    left: 607px;
+  }
+
+  .logo-container {
+    top: 10px;
+    left: 10px;
+  }
+
+  header {
+    position: fixed;
+    text-align: left;
+  }
+}

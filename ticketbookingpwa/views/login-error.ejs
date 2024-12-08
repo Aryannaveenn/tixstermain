@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--accessibility-->
+    <title>Login Error • Tixster</title>
+    <link rel="stylesheet" href="/css/login-error.css" />
+    <!-- refer to login-error.css-->
+  </head>
+  <header>
+    <!--logo -->
+    <div class="logo-container">
+      <a href="/" class="backtoindex">
+        <img
+          src="/images/logo1.jpg"
+          type="jpg"
+          alt="Tixster Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+  </header>
+  <body>
+    <!--main container -->
+    <div class="error-container">
+      <h1>Error: Invaid email or password</h1>
+      <!-- erorr msg -->
+      <h3>Please <a href="/login">log in</a> using your correct details.</h3>
+      <!-- link to login pg-->
+    </div>
+    <script>
+      //service worker registration
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("../sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

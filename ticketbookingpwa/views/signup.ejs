@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--accessibility-->
+    <meta name="description" content="Sign up page" />
+    <title>Sign Up Page • Tixster</title>
+    <link rel="stylesheet" href="/css/signup.css" />
+    <!-- refer to signup.css -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <!-- GSAP for animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- logo -->
+    <div class="logo-container">
+      <a href="/" class="backtoindex">
+        <img
+          src="/images/logo1.jpg"
+          type="jpg"
+          alt="Tixster Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+
+    <!-- main container signup form & email input -->
+    <div class="form-container">
+      <h2>Sign Up</h2>
+      <form action="/signup" method="POST">
+        <!--connect to back end-->
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email *"
+          required
+        />
+        <!--name input-->
+        <input
+          type="name"
+          name="name"
+          id="name"
+          placeholder="Enter your name *"
+          required
+        />
+        <!--pass input-->
+        <div class="password-container">
+          <input
+            class="inppass"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password *"
+            required
+          />
+          <i class="fas fa-eye" id="toggle-password"></i>
+          <!-- Eye icon for password -->
+        </div>
+        <!--confirm pass input-->
+        <div class="password-container">
+          <input
+            class="confpass"
+            type="password"
+            name="confirmPassword"
+            id="confirm-password"
+            placeholder="Confirm your password *"
+            required
+          />
+          <i class="fas fa-eye" id="toggle-confirm-password"></i>
+        </div>
+        <!--conf pass input-->
+        <button class="btn-submit" type="submit">Sign Up</button
+        ><!--main signup button-->
+      </form>
+      <p class="switch-link">
+        Already have an account? <a href="/login"><u>Login</u></a>
+        <!--link to login pg-->
+      </p>
+      <p class="require-fields">
+        Required fields are marked with an <strong class="asterisk">*</strong>
+        <!-- for accessibility -->
+      </p>
+    </div>
+
+    <script>
+      //serviceworker registration
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("../sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+
+      // animations from GSAP, moves stuff into place one by one
+      window.addEventListener("load", () => {
+        gsap.from(".form-container", {
+          opacity: 0,
+          duration: 1,
+          y: -50,
+          ease: "power3.out",
+        });
+        gsap.from("input", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 0.3,
+          stagger: 0.2,
+          ease: "power3.out",
+        });
+        gsap.from(".btn-submit", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 0.8,
+          ease: "power3.out",
+        });
+        gsap.from(".switch-link", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 1,
+          ease: "power3.out",
+        });
+        gsap.from(".require-fields", {
+          opacity: 0,
+          duration: 1,
+          y: 20,
+          delay: 1.1,
+          ease: "power3.out",
+        });
+      });
+
+      // confirming passwords are the same
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirm-password").value;
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            event.preventDefault();
+          }
+        });
+
+      // password toggle hidden and unhidden
+      document
+        .getElementById("toggle-password")
+        .addEventListener("click", function () {
+          const passwordField = document.getElementById("password");
+          const icon = document.getElementById("toggle-password");
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+          } else {
+            passwordField.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+          }
+        });
+
+      document
+        .getElementById("toggle-confirm-password")
+        .addEventListener("click", function () {
+          const confirmPasswordField =
+            document.getElementById("confirm-password");
+          const icon = document.getElementById("toggle-confirm-password");
+          if (confirmPasswordField.type === "password") {
+            confirmPasswordField.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+          } else {
+            confirmPasswordField.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+          }
+        });
+    </script>
+  </body>
+</html>

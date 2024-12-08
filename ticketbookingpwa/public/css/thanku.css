@@ -1,0 +1,100 @@
+* {
+  /*everything made default*/
+  margin: 5;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to bottom, #0d131e, white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: radial-gradient(#e66465, #9198e5);
+}
+/*main container*/
+.container {
+  background-color: white;
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 100%;
+  animation: fadeInUp 1s ease-out;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.container:hover {
+  box-shadow: 0 10px 20px rgba(5, 5, 5, 0.2);
+}
+
+/*Thank you for booking with us!*/
+h1 {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 20px;
+}
+/*stuff inside the container*/
+p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #555;
+}
+/*back to events button*/
+.cta {
+  margin-top: 30px;
+  padding: 10px 30px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  outline-style: solid;
+}
+
+.cta:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
+/*logo*/
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  opacity: 10;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+/*animation*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

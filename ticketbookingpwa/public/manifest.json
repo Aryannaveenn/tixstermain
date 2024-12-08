@@ -1,0 +1,44 @@
+{
+  "name": "Tixster",
+  "short_name": "Tixster",
+  "description": "Book tickets for your favorite events with Tixster",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    
+    {
+      "src": "/images/logo512x512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg",
+      "form_factor": "square",
+      "purpose": "any"
+    },
+    {
+    "src": "/images/logo144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "form_factor": "square",
+      "purpose": "any"
+    }
+  ],
+  "scope": "/",
+  "orientation": "portrait",
+  "lang": "en",
+  "screenshots": [
+    {
+      "src": "/images/screenshot1.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "label": "Event Listings",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/images/screenshot2.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "label": "Sign up Screen"
+    }
+  ]
+}

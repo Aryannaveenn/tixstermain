@@ -1,0 +1,142 @@
+/*main body*/
+body {
+  background: linear-gradient(to bottom, #0d131e, white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+.asterisk {
+  color: red;
+}
+/*main container*/
+.form-container {
+  background-color: white;
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+  color: black;
+}
+
+/*login msg*/
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+/*inputs*/
+input[type="email"],
+input[type="password"] {
+  width: 376px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+/*when using keyboard to navigate*/
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+/*button to login*/
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
+}
+
+/*link to signup pg*/
+.switch-link {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.switch-link a {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.switch-link a:hover {
+  color: rgb(0, 87, 0); /* darker green on hover */
+}
+
+/*required fields to enter*/
+.require-fields {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/*logo*/
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  box-shadow: 0 2222px 1000px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+}
+
+/*toggle password hidden*/
+.form-container:hover {
+  box-shadow: 0 10px 20px rgba(5, 5, 5, 0.2);
+}
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 33%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+  font-size: 18px;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+.inppass {
+  width: 376px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}

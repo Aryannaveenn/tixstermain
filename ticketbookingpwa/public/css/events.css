@@ -1,0 +1,319 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*stuff in header*/
+header {
+  background-color: #0d131e;
+  padding: 1.5rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 10px gray;
+}
+
+.contact-link .aboutus-link {
+  position: fixed;
+  top: 30px;
+  left: 1000px;
+}
+
+.cont-link {
+  color: white;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  position: fixed;
+  top: 30px;
+  left: 1040px;
+}
+
+.cont-link:hover {
+  color: darkgreen;
+  transition: color 0.3s ease;
+}
+
+.about-link {
+  color: white;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  position: fixed;
+  top: 30px;
+  left: 1150px;
+}
+
+.about-link:hover {
+  color: darkgreen;
+  transition: color 0.3s ease;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.welcome-message {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.auth-links a {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+  color: darkgreen;
+}
+.switch-link-logout {
+  color: green;
+  transition: color 0.2s ease;
+}
+
+.switch-link-logout:hover {
+  color: darkgreen;
+  transition: color 0.2s ease;
+}
+
+/*stuff in events section displau*/
+.events-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.limit {
+  color: red;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0d131e;
+  animation: fadeIn 3s ease-out;
+}
+
+.event-card {
+  background-color: #fff;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgb(193, 192, 192);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.booked-seats {
+  color: green;
+}
+
+.event-name {
+  border-left: 2px solid green;
+  margin-left: 2px;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px gray;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.event-description {
+  text-align: left;
+}
+
+.event-booking {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+input[type="number"] {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  margin-top: 1px;
+}
+
+.book-now-btn {
+  background-color: green;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  width: 100%;
+}
+
+.book-now-btn:hover {
+  background-color: darkgreen;
+}
+
+.login-prompt {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  color: black;
+}
+
+.login-prompt a {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-prompt a:hover {
+  color: darkgreen;
+}
+
+footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+  margin-top: 5rem;
+}
+/*logo*/
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  box-shadow: 0 2222px 1000px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/*search bar*/
+.search-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-form input {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: black;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-sizing: border-box;
+}
+
+.search-button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-sizing: border-box;
+}
+
+.search-form button:hover {
+  background-color: darkgreen;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button i {
+  font-size: 1.2rem;
+}
+
+/*media qeuries for responsiveness*/
+@media (max-width: 1000px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .search-form input {
+    width: 55%;
+  }
+  .event-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .event-name {
+    font-size: 1.2rem;
+  }
+  .book-now-btn {
+    font-size: 0.85rem;
+  }
+}
+
+/*  booking data dropdown */
+.dropdown-btn {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  position: fixed;
+  left: 70px;
+  top: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0d131e;
+  background: rgba(76, 175, 80, 0);
+  min-width: 160px;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.booking-dropdown:hover .dropdown-content {
+  display: block;
+  position: fixed;
+  left: 50px;
+  top: 40px;
+}
+
+.booking-dropdown:hover .dropdown-btn {
+  background-color: darkgreen;
+}
+.booking-dropdown .dropdown-content {
+  max-height: 100px;
+  overflow-y: auto;
+  margin-top: 10px;
+}

@@ -1,0 +1,156 @@
+/*main body*/
+body {
+  background: linear-gradient(360deg, white, #0d131e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+/*required fields*/
+.asterisk {
+  color: red;
+}
+
+/*main container*/
+.form-container {
+  background-color: white;
+  padding: 2.5rem;
+  max-width: 400px;
+  animation: fadeInUp 1s ease-out;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container:hover {
+  box-shadow: 0 10px 20px rgba(5, 5, 5, 0.2);
+}
+/*all the inputs*/
+input {
+  align-items: center;
+  align-content: center;
+}
+/*Signup*/
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+/*inputs*/
+input[type="email"],
+input[type="password"],
+input[type="name"] {
+  width: 376px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  padding: 12px;
+  align-items: center;
+}
+/*when using keyboard to navigate*/
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="name"]:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+/*signup button*/
+button {
+  width: 100%;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+/*link to login pg*/
+.switch-link {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.switch-link a {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.switch-link a:hover {
+  color: rgb(0, 87, 0);
+}
+
+/*logo*/
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  box-shadow: 0 2222px 1000px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+}
+
+/*required fields at the bottom*/
+.require-fields {
+  margin-top: 32px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/*hidden password toggle*/
+.password-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  top: 33%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+.confpass {
+  width: 376px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.inppass {
+  width: 376px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}

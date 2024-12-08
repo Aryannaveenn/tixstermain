@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us • Tixster</title>
+  <link rel="stylesheet" href="/css/about.css" />
+</head>
+<header>
+  <!-- Logo -->
+  <div class="logo-container">
+    <a href="/" class="backtoindex">
+      <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo">
+    </a>
+  </div>
+</header>
+
+<body>
+  <div class="contact-container"> <!--main container with about us info-->
+    <h1>Who We Are</h1>
+    <a href="/events" class="switch-link"><u>Back to events</u></a>
+    <p>Welcome to Tixster, your ultimate ticketing solution! We’re on a mission to make attending your favorite events
+      seamless, simple, and enjoyable. Whether it's concerts, sports games, theater performances, or festivals, we’re
+      here to connect you with unforgettable experiences.
+
+      <br><br> Our platform offers an easy, user-friendly interface to browse and purchase tickets for any occasion.
+      With secure payment options, real-time updates, and the ability to store your tickets digitally, you’ll never miss
+      an event again. We aim to provide excellent customer service and make ticketing as stress-free as possible, so you
+      can focus on the fun!
+
+      <br><br>At Tixster, we believe every event should be accessible, and we are committed to helping you create
+      lasting memories with your loved ones. From the moment you book your ticket to the last encore, we’re with you
+      every step of the way.
+
+      <br><br>Join us today and let’s get you to your next adventure!
+    </p>
+    </form>
+  </div>
+  <div class="footer">
+    <footer>
+      <p>&copy; Tixster </p>
+    </footer>
+  </div>
+
+  <script>
+    //service worker regirstation
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../sw.js')
+          .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--accessibility-->
+    <title>Contact Us • Tixster</title>
+    <link rel="stylesheet" href="/css/contact.css" />
+    <!--refer to contact.css-->
+  </head>
+  <!-- logo -->
+  <div class="logo-container">
+    <a href="/" class="backtoindex">
+      <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo" />
+    </a>
+  </div>
+  <body>
+    <!-- main container-->
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+      <form id="contactForm">
+        <!-- form to fill out -->
+        <div class="form-group">
+          <label for="name">Name: *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email: *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message: *</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+
+        <a href="/events" class="switch-link"><u>Back to events</u></a>
+        <p class="required">
+          Required fields are marked with an <strong>*</strong>
+          <!-- accessibility -->
+        </p>
+      </form>
+    </div>
+
+    <!-- popup message-->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">×</span>
+        <p>Your message has been received!</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <footer>
+        <p>&copy; Tixster</p>
+      </footer>
+    </div>
+
+    <script>
+      //get the form and popup elements
+      const form = document.getElementById("contactForm");
+      const popup = document.getElementById("popup");
+
+      //form submission
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent page reload on form submission
+        popup.style.display = "flex";
+        form.reset();
+      });
+      function closePopup() {
+        popup.style.display = "none";
+      }
+
+      //service worker regristation
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("../sw.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.log("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
