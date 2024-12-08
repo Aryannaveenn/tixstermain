@@ -3,115 +3,119 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--accessibility-->
-  <meta name="description" content="Main page, booking screen, events display, logout, book confirmation">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--accesibility for all screens-->
+  <meta name="description" content="Main page, booking screen, events display, logout, book confirmation"><!--acessbility consideration-->
   <title>Events • Tixster</title>
-  <link rel="stylesheet" href="/css/events.css"> <!-- refer to events.css -->
+  <link rel="stylesheet" href="/css/events.css"> <!--refer to events.css-->
   <link rel="manifest" href="/manifest.json">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script> <!-- GSAP for animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script> <!--animations-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--for the toggle password hide-->
 </head>
 
 <body>
-  <header>
-    <!-- Logo -->
-    <div class="logo-container">
+  <header> <!-- header contents-->
+    <div class="logo-container"> <!--logo-->
       <a href="/" class="backtoindex">
-        <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo">
+        <img src="/images/logo1.jpg" alt="Tixster Logo" class="logo">
       </a>
     </div>
     <h1>Tixster</h1>
-    <% if (user) { %> <!-- if user is logged in -->
-      <p class="welcome-message">Welcome, <%= user.name %> | <a href="/logout"
-            class="switch-link-logout"><u><strong>Logout</strong></u></a></p>
-      <!-- shows previous bookings for user -->
-      <div class="booking-dropdown">
+
+    <% if (user) { %><!--if user logged in-->
+      <p class="welcome-message">
+        Welcome, <%= user.name %> |  <!--welcome message in header-->
+        <a href="/logout" class="switch-link-logout"><u><strong>Logout</strong></u></a>
+      </p>
+      <div class="booking-dropdown"> <!-- to see users' bookings (query)-->
         <button class="dropdown-btn">Your Bookings <i class="fas fa-caret-down"></i></button>
         <div class="dropdown-content">
-          <% if (userBookings.length> 0) { %>
-            <% userBookings.forEach(booking=> { %>
+          <% if (userBookings.length > 0) { %> <!-- if user has bookings-->
+            <% userBookings.forEach(booking => { %> <!--for each userbooking-->
               <p>
-                <%= booking.seats %> seat(s) for <%= events.find(event=> event.id === booking.eventId)?.name || 'Event
-                    Not Found' %>
+                <%= booking.seats %> seat(s) for  <!--display seats in dropdown-->
+                <%= events.find(event => event.id === booking.eventId)?.name || 'Event Not Found' %> <!--display event name in dropdown-->
               </p>
-              <% }) %>
-                <% } else { %>
-                  <p>No bookings yet.</p>
-                  <% } %>
+            <% }) %>
+          <% } else { %>
+            <p>No bookings yet.</p> <!-- if user hasnt made a booking yet-->
+          <% } %>
         </div>
       </div>
-      <% } else { %> <!--if user is not logged in -->
-        <p class="auth-links"><a href="/signup"><u>Sign Up</u></a> | <a href="/login"><u>Login</u></a></p>
-        <% } %>
+    <% } else { %> <!--if not logged in already-->
+      <p class="auth-links">
+        <a href="/signup"><u>Sign Up</u></a> | <!--header links, signup and login-->
+        <a href="/login"><u>Login</u></a>
+      </p>
+    <% } %>
 
-          <!--search bar for events -->
-          <section class="search-section">
-            <form action="/events" method="GET" class="search-form">
-              <input size="60" class="search" type="text" name="search" placeholder="Search for events"
-                value="<%= searchQuery || '' %>">
-              <button type="submit" alt="search-button" class="search-button">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
+    <section class="search-section"> <!--search bar-->
+      <form action="/events" method="GET" class="search-form">
+        <input 
+          size="60" 
+          class="search" 
+          type="text" 
+          name="search" 
+          placeholder="Search for events"
+          value="<%- searchQuery || '' %>"
+        >
+        <button type="submit" alt="search-button" class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
 
-            <div class="contact-link">
-              <a class='cont-link' href="/contact">Contact Us</a>
-            </div>
-            <div class="aboutus-link">
-              <a class=about-link href='/aboutus'>About Us</a>
-            </div>
-          </section>
+      <div class="contact-link">
+        <a class="cont-link" href="/contact">Contact Us</a>
+      </div>
+      <div class="aboutus-link">
+        <a class="about-link" href="/aboutus">About Us</a>
+      </div>
+    </section>
   </header>
 
-  <main>
-    <!-- events section display -->
+  <main> <!--main events section-->
     <section class="events-section">
       <h2>Available Events</h2>
       <h3 class="limit">You are limited to 1 booking per account</h3>
-      <% if (events.length> 0) { %> <!--making sure there are events if there are any events -->
-        <% events.forEach(event=> { %>
+      
+      <% if (events.length > 0) { %> <!-- if there are events in database-->
+        <% events.forEach(event => { %>
           <div class="event-card">
-            <h3 class="event-name">
-              <%= event.name %>
-            </h3> <!--event's name-->
+            <h3 class="event-name"><%= event.name %></h3> <!--event card which has event name, price, seats, descritpion and booking input form-->
             <div class="event-details">
               <div class="event-description">
-                <p class="event-desc">
-                  <%= event.description %>
-                </p> <!-- Show event description -->
-                <p class="seats-available">Seats available: <strong>
-                    <%= event.seats %>
-                  </strong></p> <!-- Show available seats -->
-                <p class="event-price">Price: <strong>
-                    <%= event.price %>
-                  </strong></p> <!-- Show event price -->
+                <p class="event-desc"><%= event.description %></p>
+                <p class="seats-available">Seats available: <strong><%= event.seats %></strong></p>
+                <p class="event-price">Price: <strong><%= event.price %></strong></p>
               </div>
               <div class="event-booking">
-                <% const userBooking=userBookings.find(booking=> booking.eventId === event.id); // Check if user has
-                  already booked this event
-                  %>
-                  <p>
-                    <% if (userBooking) { %>
-                      You have made a previous booking for this event.
-                      <% } else { %>
-                        <% if (user) { %> <!--if  logged in, show booking form -->
-                          <form action="/book/<%= event.id %>" method="POST" class="booking-form">
-                            <input class="seats" type="number" name="seats" placeholder="Seats" min="1"
-                              max="<%= event.seats %>" required>
-                            <button type="submit" class="book-now-btn"><strong>Book Tickets</strong></button>
-                          </form>
-                          <% } else { %> <!-- If logged in then prompt to login before booking-->
-                            <p class="login-prompt">Please <a href="/login"><u>login</u></a> to book this event.</p>
-                            <% } %>
-                              <% } %>
+                <% const userBooking = userBookings.find(booking => booking.eventId === event.id); %>
+                <% if (userBooking) { %> <!-- if user already booked this event-->
+                  <p>You have made a previous booking for this event.</p>
+                <% } else if (user) { %>
+                  <form action="/book/<%= event.id %>" method="POST" class="booking-form"> <!--main booking form-->
+                    <input 
+                      class="seats" 
+                      type="number" 
+                      name="seats" 
+                      placeholder="Seats" 
+                      min="1" 
+                      max="<%= event.seats %>" 
+                      required
+                    >
+                    <button type="submit" class="book-now-btn"><strong>Book Tickets</strong></button>
+                  </form>
+                <% } else { %>
+                  <p class="login-prompt">
+                    Please <a href="/login"><u>login</u></a> to book this event. <!--if user not logged in, prompt to login before booking-->
                   </p>
+                <% } %>
               </div>
             </div>
           </div>
-          <% }) %>
-            <% } else { %> <!--if no events found -->
-              <p>No events available.</p>
-              <% } %>
+        <% }) %>
+      <% } else { %>
+        <p>No events available.</p>
+      <% } %>
     </section>
   </main>
 
@@ -119,8 +123,8 @@
     <p>&copy; Tixster</p>
   </footer>
 
-  <!-- service worker Registration -->
   <script>
+    //service worker registration
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('../sw.js')
@@ -128,7 +132,7 @@
             console.log('Service Worker registered with scope:', registration.scope);
           })
           .catch((error) => {
-            console.log('Service Worker registration failed:', error);
+            console.error('Service Worker registration failed:', error);
           });
       });
     }
@@ -141,5 +145,4 @@
     });
   </script>
 </body>
-
 </html>
