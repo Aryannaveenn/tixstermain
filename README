@@ -12,7 +12,7 @@ const User = require('./.database_models/user.js'); //requires user.js database 
 const Event = require('./.database_models/event.js'); //requires event.js database model to collect/store data
 const Booking = require('./.database_models/booking.js'); //requires booking.js database model to collect/store data
 
-Packages execute in gitbash:
+Packages execute in gitbash terminal:
 
 npm install nodejs
 npm install connect-flash
@@ -28,7 +28,8 @@ in /ticketbookingpwa
 node server.js
 
 port: 443 
-http://localhost:443/
+http://localhost:443/ 
+
 
 pages (views):
 index.ejs '/'
@@ -38,6 +39,8 @@ signup.ejs '/signup'
 thanku.ejs '/thanku'
 signup-error.ejs '/signup-error'
 login-error.ejs '/login-error'
+aboutus.ejs '/aboutus'
+contact.ejs '/contact'
 
 
 database: database.sqlite
@@ -64,6 +67,8 @@ File Structure:
                 |>thanku.css
                 |>signup-error.css
                 |>login-error.css
+                |>contact.css
+                |>about.css
             |>/images
                 |>logo1.png
                 |>logo144x144.png
@@ -81,6 +86,8 @@ File Structure:
             |>thanku.ejs
             |>signup-error.ejs
             |>login-error.ejs
+            |>contact.ejs
+            |>aboutus.ejs
         |>database.sqlite
         |>package.json --> npm init -y
         |>package-lock.json --> npm install express
